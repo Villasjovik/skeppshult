@@ -1,10 +1,9 @@
 {
-  "svgPath": "/Users/lucasm4max/Desktop/Claude/operational/projekt/villa-sjovik/pitchar/skeppshult/skeppshult.svg",
-  "svgFilename": "skeppshult.svg",
-  "brandColor": "#1A1410",
-  "brandColorHex": "0x1A1410",
-  "dominantDetected": "#1A1410",
-  "isLightLogo": false,
-  "note": "Wordmark är svart — renderas i metal/#F2EDE4 för kontrast mot dark hero-bg per Okatsune-canonical mönster.",
-  "generatedAt": "2026-05-20T00:00:00.000Z"
+  "svgPath": "/tmp/skepps-3d/skeppshult-source.svg",
+  "svgFilename": "skeppshult-source.svg",
+  "brandColor": "#1a1a1a",
+  "brandColorHex": "0x1a1a1a",
+  "dominantDetected": "#f8f8f8",
+  "isLightLogo": true,
+  "generatedAt": "2026-05-20T15:24:31.648Z"
 }
