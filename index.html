@@ -539,8 +539,8 @@ box-shadow:
   0 0 90px rgba(212,168,75,.14),
   inset 0 1px 0 rgba(255,255,255,.08)}
 
-.price-grid>.price-box:first-child{--pb-rot:8deg;animation-delay:-3s;--pb-scale:.94}
-.price-grid>.price-box:last-child{--pb-rot:-8deg;animation-delay:0s;--pb-scale:.94}
+.price-grid>.price-box:not(.featured){--pb-rot:8deg;animation-delay:-3s;--pb-scale:.9}
+.price-grid>.price-box.featured{--pb-rot:0deg;animation-delay:0s;--pb-scale:1.04;z-index:2}
 
 @keyframes pb-float-anim{
   0%{--pb-float:0px}
@@ -1096,7 +1096,6 @@ position:relative;overflow:hidden;transition:color .35s}
 
       <!-- Startpaket -->
       <div class="price-box rv d1">
-        <span class="price-ribbon ribbon-muted">Pilot för 2026</span>
         <h3 class="price-title">Startpaket</h3>
         <p class="price-sub">1 video &middot; 2 stories med CTA &middot; 20 miljöbilder</p>
         <p class="price-total-lbl">Pris</p>
@@ -1113,7 +1112,7 @@ position:relative;overflow:hidden;transition:color .35s}
 
       <!-- Projektpaket (featured) -->
       <div class="price-box featured rv d2">
-        <span class="price-ribbon">Rekommenderas</span>
+        <span class="price-ribbon">Mest värde &middot; Rekommenderat</span>
         <h3 class="price-title">Projektpaket</h3>
         <p class="price-sub">3 videor &middot; 6 stories med CTA &middot; 60 miljöbilder</p>
         <p class="price-total-lbl">Pris</p>
