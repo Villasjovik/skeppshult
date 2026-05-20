@@ -539,8 +539,10 @@ box-shadow:
   0 0 90px rgba(212,168,75,.14),
   inset 0 1px 0 rgba(255,255,255,.08)}
 
-.price-grid>.price-box:not(.featured){--pb-rot:8deg;animation-delay:-3s;--pb-scale:.9}
-.price-grid>.price-box.featured{--pb-rot:0deg;animation-delay:0s;--pb-scale:1.04;z-index:2}
+.price-grid>.price-box:first-child{--pb-rot:11deg;animation-delay:-3s}
+.price-grid>.price-box:last-child{--pb-rot:-11deg;animation-delay:0s}
+.price-grid>.price-box:not(.featured){--pb-scale:.9}
+.price-grid>.price-box.featured{--pb-scale:1;z-index:2}
 
 @keyframes pb-float-anim{
   0%{--pb-float:0px}
