@@ -314,6 +314,185 @@ display:flex;align-items:center;gap:16px;margin-bottom:52px}
   .rail-a .rail-out-num,.rail-b .rail-out-num{transition:none!important}
 }
 
+/* === PRICING / BUDGET-TUNER SECTION === */
+#sec-pr{position:relative;background:linear-gradient(168deg,var(--bg2) 0%,var(--bg3) 40%,var(--bg2) 100%);padding:96px 24px 100px;overflow:hidden}
+.pr-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+@media(min-width:900px){#sec-pr .sec-h2{white-space:nowrap}}
+#sec-pr .sec-h2{margin-bottom:76px}
+.pr-orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none}
+.pr-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,75,.12),transparent);top:-150px;right:-100px;animation:orbf 26s ease-in-out infinite}
+
+/* === BUDGET TUNER === */
+.budget-tuner{position:relative;max-width:760px;margin:0 auto 56px;
+  border-radius:22px;padding:32px 36px 30px;
+  background:linear-gradient(145deg,rgba(212,168,75,.05) 0%,rgba(212,168,75,.01) 55%,rgba(212,168,75,.04) 100%);
+  border:1px solid rgba(212,168,75,.18);
+  box-shadow:0 18px 42px rgba(0,0,0,.32),inset 0 1px 0 rgba(212,168,75,.06)}
+.budget-tuner::before{content:'';position:absolute;inset:0;border-radius:22px;pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(212,168,75,.07),transparent 70%)}
+.budget-tuner>*{position:relative;z-index:1}
+.bt-head{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.bt-tag{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.bt-tag::before{content:'';width:18px;height:1px;background:var(--gold);display:inline-block}
+.bt-h3{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,26px);font-weight:500;line-height:1.25;color:var(--ink);text-wrap:balance;max-width:540px}
+.bt-h3 em{font-style:italic;color:var(--gold)}
+
+.bt-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+@media(max-width:720px){.bt-grid{grid-template-columns:1fr;gap:22px}}
+
+.bt-input-wrap{display:flex;flex-direction:column;gap:10px}
+.bt-lbl{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(212,168,75,.75)}
+
+.bt-input-shell{position:relative;display:flex;align-items:baseline;gap:10px;
+  padding:14px 16px 12px;border-radius:12px;
+  background:rgba(2,26,14,.7);
+  border:1px solid rgba(212,168,75,.22);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.bt-input-shell:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,75,.12),0 0 24px rgba(212,168,75,.18)}
+.bt-input{flex:1;min-width:0;background:transparent;border:0;outline:0;
+  font-family:'Playfair Display',serif;font-size:clamp(26px,3.6vw,38px);font-weight:500;
+  color:var(--ink);font-feature-settings:"tnum";letter-spacing:-.01em;line-height:1;
+  -moz-appearance:textfield;appearance:textfield}
+.bt-input::-webkit-outer-spin-button,.bt-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.bt-suffix{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);flex-shrink:0}
+
+.bt-range{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent;outline:0;cursor:pointer;margin-top:6px}
+.bt-range::-webkit-slider-runnable-track{height:4px;border-radius:99px;
+  background:linear-gradient(90deg,var(--gold) 0%,var(--gold) var(--bt-fill,5.3%),rgba(212,168,75,.16) var(--bt-fill,5.3%),rgba(212,168,75,.16) 100%)}
+.bt-range::-moz-range-track{height:4px;border-radius:99px;background:rgba(212,168,75,.16)}
+.bt-range::-moz-range-progress{height:4px;border-radius:99px;background:var(--gold)}
+.bt-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--gold2),var(--gold) 60%,#a07a32 100%);
+  border:1.5px solid #021A0E;cursor:pointer;margin-top:-7px;
+  box-shadow:0 4px 12px rgba(0,0,0,.5),0 0 12px rgba(212,168,75,.4);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.bt-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--gold2),var(--gold) 60%,#a07a32 100%);
+  border:1.5px solid #021A0E;cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.5),0 0 12px rgba(212,168,75,.4)}
+.bt-range:hover::-webkit-slider-thumb{transform:scale(1.15);box-shadow:0 4px 14px rgba(0,0,0,.55),0 0 18px rgba(212,168,75,.6)}
+.bt-range:active::-webkit-slider-thumb{transform:scale(1.25)}
+
+.bt-ticks{display:flex;justify-content:space-between;padding:0 1px;margin-top:-4px;
+  font-family:'Inter',sans-serif;font-size:9px;font-weight:500;letter-spacing:.16em;color:rgba(212,168,75,.5);font-feature-settings:"tnum"}
+
+.bt-readout{display:flex;flex-direction:column;gap:14px;padding-left:24px;
+  border-left:1px solid rgba(212,168,75,.14)}
+@media(max-width:720px){.bt-readout{padding-left:0;padding-top:16px;border-left:0;border-top:1px solid rgba(212,168,75,.12)}}
+
+.bt-formula{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,1.9vw,18px);color:var(--warm);line-height:1.5;font-feature-settings:"tnum"}
+.bt-formula strong{color:var(--gold);font-style:normal;font-weight:600;font-family:'Inter',sans-serif;font-size:.95em;letter-spacing:-.005em;transition:color .3s var(--ease);white-space:nowrap}
+.bt-hint strong{white-space:nowrap}
+.bt-formula .bt-eq{color:rgba(212,168,75,.55);margin:0 4px;font-style:normal;font-family:'Inter',sans-serif;font-weight:300}
+.bt-formula strong.flash{color:var(--gold2);text-shadow:0 0 14px rgba(240,200,120,.5)}
+
+.bt-hint{font-family:'Inter',sans-serif;font-size:12px;color:rgba(242,237,228,.55);line-height:1.55;font-feature-settings:"tnum"}
+.bt-hint strong{color:var(--gold);font-weight:600;transition:color .3s var(--ease)}
+.bt-hint strong.flash{color:var(--gold2);text-shadow:0 0 14px rgba(240,200,120,.5)}
+
+@media(max-width:720px){
+  .budget-tuner{padding:24px 22px 22px;margin-bottom:40px;border-radius:18px}
+  .bt-head{margin-bottom:18px}
+}
+
+/* === PRICE GRID === */
+@property --pb-float{syntax:'<length>';inherits:false;initial-value:0px}
+@property --pb-hover{syntax:'<length>';inherits:false;initial-value:0px}
+
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:52px;perspective:1800px;perspective-origin:50% 45%;max-width:760px;margin-left:auto;margin-right:auto}
+.price-box{border:1px solid rgba(212,168,75,.2);border-top:2px solid rgba(212,168,75,.45);border-radius:22px;
+  background:linear-gradient(145deg,rgba(212,168,75,.07) 0%,rgba(212,168,75,.02) 55%,rgba(212,168,75,.045) 100%);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:48px 40px 44px;position:relative;text-align:left;overflow:hidden;
+  box-shadow:0 50px 120px rgba(0,0,0,.72),0 22px 44px rgba(0,0,0,.52),0 8px 16px rgba(0,0,0,.4),0 0 60px rgba(212,168,75,.06),inset 0 1px 0 rgba(255,255,255,.06);
+  --pb-rot:0deg;--pb-base-y:0px;--pb-float:0px;--pb-hover:0px;--pb-scale:1;
+  transform-style:preserve-3d;transform-origin:50% 55%;
+  transform:rotateY(var(--pb-rot)) translate3d(0,calc(var(--pb-base-y) + var(--pb-float) + var(--pb-hover)),0) scale(var(--pb-scale))!important;
+  animation:pb-float-anim 12s cubic-bezier(.45,.05,.55,.95) infinite;
+  will-change:transform;
+  transition:border-color .4s,box-shadow .4s var(--ease),opacity .8s var(--ease),--pb-hover .55s var(--ease)}
+.price-box::before{content:'';position:absolute;inset:0;border-radius:22px;pointer-events:none;
+  background:radial-gradient(ellipse 120% 60% at 50% -10%,rgba(255,232,180,.12),transparent 55%),radial-gradient(circle at 50% 0%,rgba(212,168,75,.1),transparent 70%);
+  opacity:.7;transition:opacity .4s;z-index:0}
+.price-box:hover::before{opacity:1}
+.price-box>*{position:relative;z-index:1}
+.price-box:hover{border-color:rgba(212,168,75,.45);
+  box-shadow:0 40px 90px rgba(0,0,0,.55),0 14px 28px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.1);
+  --pb-hover:-8px}
+.price-box.featured{border-color:rgba(212,168,75,.5);border-top-color:rgba(212,168,75,.65);
+  background:linear-gradient(145deg,rgba(212,168,75,.1) 0%,rgba(212,168,75,.035) 55%,rgba(212,168,75,.075) 100%);
+  box-shadow:0 60px 140px rgba(0,0,0,.78),0 26px 52px rgba(0,0,0,.55),0 10px 22px rgba(0,0,0,.42),0 0 90px rgba(212,168,75,.14),inset 0 1px 0 rgba(255,255,255,.08)}
+
+.price-grid>.price-box:first-child{--pb-rot:8deg;animation-delay:-3s}
+.price-grid>.price-box:last-child{--pb-rot:-8deg;animation-delay:0s}
+.price-grid>.price-box:not(.featured){--pb-scale:.9}
+.price-grid>.price-box.featured{--pb-scale:1.04;z-index:2}
+
+@keyframes pb-float-anim{
+  0%{--pb-float:0px}25%{--pb-float:-3.5px}50%{--pb-float:-7px}75%{--pb-float:-3.5px}100%{--pb-float:0px}
+}
+
+.price-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.05;letter-spacing:-.005em}
+.price-sub{font-family:'Inter',sans-serif;font-size:12px;color:rgba(242,237,228,.55);margin-bottom:36px;letter-spacing:.03em;line-height:1.6;font-weight:400}
+.price-total-lbl{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.price-orig{font-family:'Inter',sans-serif;font-size:15px;font-weight:300;color:rgba(242,237,228,.28);text-decoration:line-through;margin-bottom:6px;letter-spacing:.02em}
+.price-total{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,58px);font-weight:500;color:var(--ink);line-height:1}
+.price-unit{font-family:'Inter',sans-serif;font-size:14px;font-weight:300;color:var(--muted);display:block;margin-top:8px}
+.price-ribbon{position:absolute;top:0;left:36px;background:var(--gold);color:#021A0E;font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 16px;border-radius:0 0 10px 10px;z-index:2}
+
+.price-includes{margin-top:32px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.pi{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(242,237,228,.65);line-height:1.5}
+.pi::before{content:'·';color:var(--gold);font-size:16px;flex-shrink:0;line-height:1.2;margin-top:1px}
+.pi.hi{color:rgba(242,237,228,.9);font-weight:500}
+
+/* Per-paket boost row */
+.pkg-boost{
+  margin-top:28px;width:100%;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 18px;
+  background:rgba(3,43,22,.35);
+  border:1px solid rgba(212,168,75,.16);
+  border-radius:14px;
+  color:var(--ink);font-family:'Inter',sans-serif;
+  cursor:pointer;text-align:left;
+  transition:background .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.pkg-boost:hover{background:rgba(6,59,30,.55);border-color:rgba(212,168,75,.32);box-shadow:0 6px 24px rgba(0,0,0,.32),0 0 28px rgba(52,199,89,.08)}
+.pkg-boost:active{transform:scale(.997)}
+.pkg-boost[aria-pressed="true"]{background:rgba(6,59,30,.6);border-color:rgba(212,168,75,.42);box-shadow:0 8px 30px rgba(0,0,0,.38),0 0 40px rgba(52,199,89,.12)}
+.pkg-boost-switch{width:38px;height:22px;flex-shrink:0;margin-top:2px;background:rgba(120,120,128,.32);border-radius:100px;position:relative;transition:background-color .3s ease}
+.pkg-boost-switch::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 2px 6px rgba(0,0,0,.2),0 0 0 .5px rgba(0,0,0,.04)}
+.pkg-boost[aria-pressed="true"] .pkg-boost-switch{background:#34C759}
+.pkg-boost[aria-pressed="true"] .pkg-boost-switch::after{transform:translateX(16px)}
+.pkg-boost-text{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}
+.pkg-boost-tag{align-self:flex-start;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:3px 9px;margin-bottom:3px;border-radius:100px;background:rgba(212,168,75,.08);border:1px solid rgba(212,168,75,.22);color:rgba(242,237,228,.55);transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease)}
+.pkg-boost-tag em{font-style:normal;color:var(--gold);font-weight:700}
+.pkg-boost:hover .pkg-boost-tag{background:rgba(212,168,75,.16);border-color:rgba(212,168,75,.4)}
+.pkg-boost[aria-pressed="true"] .pkg-boost-tag{background:rgba(52,199,89,.14);border-color:rgba(52,199,89,.35);color:rgba(242,237,228,.85)}
+.pkg-boost[aria-pressed="true"] .pkg-boost-tag em{color:#5ed47a}
+.pkg-boost-title{font-size:13px;font-weight:600;letter-spacing:.015em;color:var(--ink);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;transition:color .35s var(--ease)}
+.pkg-boost[aria-pressed="true"] .pkg-boost-title{color:var(--gold)}
+.pkg-boost-price{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.pkg-boost-desc{font-size:12px;color:rgba(242,237,228,.55);line-height:1.55;letter-spacing:.005em}
+.pkg-boost[aria-pressed="true"] .pkg-boost-desc{color:rgba(242,237,228,.75)}
+.pkg-boost-stat{color:var(--gold);font-weight:600;letter-spacing:.015em;white-space:nowrap}
+.pkg-boost[aria-pressed="true"] .pkg-boost-stat{text-shadow:0 0 18px rgba(212,168,75,.35)}
+.price-total.boost-pulse{animation:boostPulse .9s var(--ease)}
+.price-orig.boost-pulse{animation:boostPulseSub .9s var(--ease)}
+@keyframes boostPulse{0%{transform:scale(1)}40%{transform:scale(1.04);text-shadow:0 0 24px rgba(212,168,75,.5)}100%{transform:scale(1)}}
+@keyframes boostPulseSub{0%,100%{opacity:.28}50%{opacity:.55}}
+
+@media(max-width:700px){
+  .price-grid{grid-template-columns:1fr;perspective:none;max-width:none}
+  .price-box,.price-grid>.price-box:first-child,.price-grid>.price-box:last-child{--pb-rot:0deg;--pb-base-y:0px}
+  .price-box{padding:36px 24px}
+}
+@media(max-width:560px){
+  .pkg-boost{padding:14px 14px;gap:11px}
+  .pkg-boost-title{font-size:12px}
+  .pkg-boost-desc{font-size:11px}
+}
+
 /* OUTRO */
 #sec-outro{position:relative;background:radial-gradient(ellipse 90% 80% at 50% 50%,var(--bg3) 0%,var(--bg) 70%);padding:120px 24px 140px;overflow:hidden;text-align:center}
 .outro-orb-1{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);pointer-events:none;
@@ -527,7 +706,100 @@ display:flex;align-items:center;gap:16px;margin-bottom:52px}
     </div>
 
     <p class="meta-kicker rv">Betalt samarbete betalar tillbaka &mdash; när varje exponering <em>leder hem till&nbsp;er.</em></p>
-    <p class="meta-anchor rv"><span class="meta-anchor-text">Budgeten är er att välja &mdash; se nedan</span> <span class="meta-anchor-arrow" aria-hidden="true">↓</span></p>
+    <p class="meta-anchor rv"><span class="meta-anchor-text">Justera Meta-budget nedan &mdash; se räckvidden ändras</span> <span class="meta-anchor-arrow" aria-hidden="true">↓</span></p>
+  </div>
+</section>
+
+<div class="gd"></div>
+
+<!-- INVESTERING + BUDGET TUNER -->
+<section id="sec-pr">
+  <div class="pr-orb pr-orb-1" aria-hidden="true"></div>
+  <div class="pr-inner">
+    <p class="sec-lbl rv">Investering</p>
+    <h2 class="sec-h2 rv">Två sätt att bygga <em>berättelse och räckvidd.</em></h2>
+
+    <!-- BUDGET TUNER -->
+    <div class="budget-tuner rv" data-budget-tuner>
+      <div class="bt-head">
+        <span class="bt-tag">Steg 1 &middot; Justera</span>
+        <h3 class="bt-h3">Hur mycket vill ni lägga på <em>Meta-räckvidd</em> per produktion?</h3>
+      </div>
+
+      <div class="bt-grid">
+        <div class="bt-input-wrap">
+          <label class="bt-lbl" for="bt-input">Egen Meta-budget per produktion</label>
+          <div class="bt-input-shell">
+            <input id="bt-input" class="bt-input" type="text" inputmode="numeric" autocomplete="off" aria-describedby="bt-formula" value="10 000">
+            <span class="bt-suffix" aria-hidden="true">SEK</span>
+          </div>
+          <input id="bt-range" class="bt-range" type="range" min="0" max="100000" step="1000" value="10000" aria-label="Justera Meta-budget med reglage"/>
+          <div class="bt-ticks" aria-hidden="true">
+            <span>0</span><span>25k</span><span>50k</span><span>75k</span><span>100k</span>
+          </div>
+        </div>
+
+        <div class="bt-readout">
+          <p id="bt-formula" class="bt-formula">10&thinsp;000 SEK <span class="bt-eq">&asymp;</span> <strong data-bt-views="single">150&thinsp;000</strong> visningar per video</p>
+          <p class="bt-hint">Projektpaket multiplicerar med <strong>3 produktioner</strong> &mdash; totalt <strong data-bt-views="projekt">450&thinsp;000</strong> visningar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- Startpaket -->
+      <div class="price-box rv d1" data-pkg-box="start">
+        <h3 class="price-title">Startpaket</h3>
+        <p class="price-sub">1 video &middot; 2 stories med CTA &middot; 20 milj&ouml;bilder</p>
+        <p class="price-total-lbl">Pris</p>
+        <p class="price-total" data-base="18500" data-boost="28500">18 500</p>
+        <span class="price-unit">SEK &middot; exkl. moms</span>
+        <div class="price-includes">
+          <p class="pi hi">1 video publicerad i Villa Sj&ouml;viks kanaler</p>
+          <p class="pi hi">2 stories i Villa Sj&ouml;viks kanaler &mdash; direktl&auml;nk och CTA</p>
+          <p class="pi hi">20 milj&ouml;bilder f&ouml;r era egna kanaler och er webb</p>
+          <p class="pi">Fullst&auml;ndiga anv&auml;ndningsr&auml;ttigheter till allt material</p>
+          <p class="pi">Styling, foto, film och redigering ing&aring;r</p>
+        </div>
+        <button class="pkg-boost" type="button" aria-pressed="false" data-pkg="start">
+          <span class="pkg-boost-switch" aria-hidden="true"></span>
+          <span class="pkg-boost-text">
+            <span class="pkg-boost-tag">Valfritt &middot; <em>Rekommenderat</em></span>
+            <span class="pkg-boost-title">Aktivera Meta-r&auml;ckvidd <span class="pkg-boost-price" data-bt-price="start">+10&nbsp;000 SEK</span></span>
+            <span class="pkg-boost-desc">Videon visas igen f&ouml;r dem som redan tittat &mdash; <strong class="pkg-boost-stat" data-bt-stat="start">150&nbsp;000 g&aring;nger!</strong> Meta driver videon med direktl&auml;nk till skeppshult.com s&aring; de g&aring;r fr&aring;n intresse till k&ouml;p.</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Projektpaket (featured) -->
+      <div class="price-box featured rv d2" data-pkg-box="projekt">
+        <span class="price-ribbon">Mest v&auml;rde &middot; Rekommenderat</span>
+        <h3 class="price-title">Projektpaket</h3>
+        <p class="price-sub">3 videor &middot; 6 stories med CTA &middot; 60 milj&ouml;bilder</p>
+        <p class="price-total-lbl">Pris</p>
+        <p class="price-orig" data-base="ord. 55 500 kr" data-boost="ord. 85 500 kr">ord. 55 500 kr</p>
+        <p class="price-total" data-base="39000" data-boost="69000">39 000</p>
+        <span class="price-unit">SEK &middot; exkl. moms</span>
+        <div class="price-includes">
+          <p class="pi hi">3 videor publicerade i Villa Sj&ouml;viks kanaler</p>
+          <p class="pi hi">6 stories i Villa Sj&ouml;viks kanaler &mdash; direktl&auml;nk och CTA</p>
+          <p class="pi hi">60 milj&ouml;bilder f&ouml;r era egna kanaler och er webb</p>
+          <p class="pi">Fullst&auml;ndiga anv&auml;ndningsr&auml;ttigheter till allt material</p>
+          <p class="pi">Styling, foto, film och redigering ing&aring;r</p>
+        </div>
+        <button class="pkg-boost" type="button" aria-pressed="false" data-pkg="projekt">
+          <span class="pkg-boost-switch" aria-hidden="true"></span>
+          <span class="pkg-boost-text">
+            <span class="pkg-boost-tag">Valfritt &middot; <em>Rekommenderat</em></span>
+            <span class="pkg-boost-title">Aktivera Meta-r&auml;ckvidd <span class="pkg-boost-price" data-bt-price="projekt">+30&nbsp;000 SEK</span></span>
+            <span class="pkg-boost-desc">Alla tre produktionerna f&aring;r retargeting &mdash; videorna visas igen, <strong class="pkg-boost-stat" data-bt-stat="projekt">totalt 450&nbsp;000 g&aring;nger!</strong> Meta driver videorna med direktl&auml;nk till skeppshult.com s&aring; de g&aring;r fr&aring;n intresse till k&ouml;p.</span>
+          </span>
+        </button>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -539,8 +811,8 @@ display:flex;align-items:center;gap:16px;margin-bottom:52px}
   <div class="outro-orb-2" aria-hidden="true"></div>
   <div class="outro-inner">
     <span class="outro-eyebrow rv">Nästa steg</span>
-    <h2 class="outro-h2 rv">Budgeten är <em>er att välja.</em></h2>
-    <p class="outro-body rv">30 000 kr som vi visade i exemplet är inte ett krav — det är toppen av spannet. De flesta partners startar mellan 10 000 och 20 000 kr för att se hur det beter sig innan de skalar upp. Vi anpassar paketet helt efter vad ni vill testa.</p>
+    <h2 class="outro-h2 rv">När du har en siffra i tanken, <em>hör av dig.</em></h2>
+    <p class="outro-body rv">Är ni redo att lägga in en pilot, eller vill ni testa er fram? Vi anpassar paketet helt efter det ni vill se hända.</p>
     <p class="rv"><a class="outro-link" href="mailto:kontakt@villasjovik.se">Skriv till Carin &rarr;</a></p>
   </div>
 </section>
@@ -591,7 +863,8 @@ document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
 
   const sections=[
     {id:'sec-hero',label:'Möte',scrollTo:()=>0},
-    {id:'sec-meta',label:'Meta-kampanj'}
+    {id:'sec-meta',label:'Meta-kampanj'},
+    {id:'sec-pr',label:'Investering'}
   ].map(s=>({...s,el:document.getElementById(s.id)})).filter(s=>s.el);
   if(!sections.length)return;
 
@@ -940,6 +1213,233 @@ document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
       else if(rail.getBoundingClientRect().top<window.innerHeight && rail.getBoundingClientRect().bottom>0) start();
     });
   });
+})();
+
+/* === BUDGET TUNER + PKG-BOOST (live, budget-driven) + RAIL-B live-coupling === */
+(function(){
+  const input=document.getElementById('bt-input');
+  const range=document.getElementById('bt-range');
+  const formulaViewsSingle=document.querySelector('[data-bt-views="single"]');
+  const formulaViewsProjekt=document.querySelector('[data-bt-views="projekt"]');
+  const formulaSpan=document.querySelector('.bt-formula');
+  const boosts=document.querySelectorAll('.pkg-boost');
+  if(!input&&!range)return;
+
+  const VIEWS_PER_SEK=15;
+  const PROJEKT_MULT=3;
+  const MIN=0, MAX=100000;
+  const STORAGE_KEY='skeppshult-meta-budget';
+
+  let currentBudget=10000;
+
+  function fmt(n){return Math.round(n).toLocaleString('sv-SE')}
+  function fmtThin(n){return Math.round(n).toLocaleString('sv-SE').replace(/\s/g,' ')}
+  function parseBudget(str){
+    const n=parseInt(String(str).replace(/[^\d]/g,''),10);
+    if(isNaN(n))return null;
+    return Math.max(MIN,Math.min(MAX,n));
+  }
+
+  function animateNumber(el,from,to,duration,formatter){
+    const fmtFn=formatter||fmt;
+    const start=performance.now();
+    function tick(now){
+      const t=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-t,3);
+      el.textContent=fmtFn(Math.round(from+(to-from)*eased));
+      if(t<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function boostCostFor(pkg){
+    return pkg==='projekt' ? currentBudget*PROJEKT_MULT : currentBudget;
+  }
+  function viewsFor(pkg){
+    return pkg==='projekt' ? currentBudget*VIEWS_PER_SEK*PROJEKT_MULT : currentBudget*VIEWS_PER_SEK;
+  }
+
+  // Live-update rail-b outcome counter in sec-meta
+  function updateRailB(){
+    const railEl=document.querySelector('[data-rail-num="b"]');
+    if(!railEl)return;
+    const newViews=currentBudget*VIEWS_PER_SEK;
+    const current=parseInt(String(railEl.textContent).replace(/[^\d]/g,''),10)||0;
+    // Animate the number, then restore <sup>+</sup> suffix
+    const start=performance.now();
+    const dur=600;
+    (function tick(now){
+      const t=Math.min((now-start)/dur,1);
+      const eased=1-Math.pow(1-t,3);
+      const n=Math.round(current+(newViews-current)*eased);
+      railEl.innerHTML=fmt(n)+'<sup>+</sup>';
+      if(t<1)requestAnimationFrame(tick);
+    })(start);
+    // Also update the data-v so scroll-in animation uses current value
+    railEl.dataset.v=newViews;
+  }
+
+  function refreshPackage(pkg){
+    const box=document.querySelector(`[data-pkg-box="${pkg}"]`);
+    if(!box)return;
+    const total=box.querySelector('.price-total[data-base][data-boost]');
+    const orig=box.querySelector('.price-orig[data-base][data-boost]');
+    const priceLbl=box.querySelector(`[data-bt-price="${pkg}"]`);
+    const statLbl=box.querySelector(`[data-bt-stat="${pkg}"]`);
+    const btn=box.querySelector('.pkg-boost');
+    const isOn=btn && btn.getAttribute('aria-pressed')==='true';
+
+    if(!total)return;
+    const base=+total.dataset.base;
+    const newBoost=base+boostCostFor(pkg);
+    total.dataset.boost=newBoost;
+    if(orig){
+      const origBaseNum=parseInt(orig.dataset.base.replace(/[^\d]/g,''),10);
+      const origBoostNum=origBaseNum+boostCostFor(pkg);
+      orig.dataset.boost='ord. '+fmt(origBoostNum)+' kr';
+    }
+
+    if(priceLbl) priceLbl.innerHTML='+'+fmtThin(boostCostFor(pkg))+'&nbsp;SEK';
+    if(statLbl){
+      const views=viewsFor(pkg);
+      statLbl.innerHTML = pkg==='projekt'
+        ? 'totalt '+fmtThin(views)+'&nbsp;gånger!'
+        : fmtThin(views)+'&nbsp;gånger!';
+    }
+
+    if(isOn && total){
+      const currentDisplayed=parseInt(total.textContent.replace(/[^\d]/g,''),10);
+      animateNumber(total,currentDisplayed,newBoost,420);
+      total.classList.remove('boost-pulse');
+      void total.offsetWidth;
+      total.classList.add('boost-pulse');
+      if(orig){
+        orig.textContent=orig.dataset.boost;
+        orig.classList.remove('boost-pulse');
+        void orig.offsetWidth;
+        orig.classList.add('boost-pulse');
+      }
+    }
+  }
+
+  function refreshAll(){
+    refreshPackage('start');
+    refreshPackage('projekt');
+
+    // Formula line
+    if(formulaViewsSingle){
+      formulaViewsSingle.innerHTML=fmtThin(currentBudget*VIEWS_PER_SEK);
+      formulaViewsSingle.classList.remove('flash');void formulaViewsSingle.offsetWidth;formulaViewsSingle.classList.add('flash');
+    }
+    if(formulaViewsProjekt){
+      formulaViewsProjekt.innerHTML=fmtThin(currentBudget*VIEWS_PER_SEK*PROJEKT_MULT);
+      formulaViewsProjekt.classList.remove('flash');void formulaViewsProjekt.offsetWidth;formulaViewsProjekt.classList.add('flash');
+    }
+    if(formulaSpan){
+      const eq=formulaSpan.querySelector('.bt-eq');
+      if(eq && eq.previousSibling && eq.previousSibling.nodeType===3){
+        eq.previousSibling.textContent=fmtThin(currentBudget)+' SEK ';
+      }
+    }
+
+    // Range fill CSS variable
+    if(range){
+      const pct=((currentBudget-MIN)/(MAX-MIN))*100;
+      range.style.setProperty('--bt-fill',pct+'%');
+    }
+
+    // Live-couple rail-b
+    updateRailB();
+  }
+
+  function setBudget(n,opts){
+    currentBudget=Math.max(MIN,Math.min(MAX,Math.round(n/1000)*1000));
+    if(input && !(opts&&opts.skipInput)) input.value=fmt(currentBudget);
+    if(range && !(opts&&opts.skipRange)) range.value=currentBudget;
+    refreshAll();
+    try{localStorage.setItem(STORAGE_KEY,String(currentBudget))}catch(e){}
+  }
+
+  if(input){
+    input.addEventListener('input',e=>{
+      const raw=e.target.value.replace(/[^\d]/g,'');
+      const n=parseInt(raw,10);
+      if(!isNaN(n) && n>=MIN && n<=MAX){
+        setBudget(n,{skipInput:true});
+      } else if(!isNaN(n)){
+        currentBudget=Math.max(MIN,Math.min(MAX,n));
+        if(range) range.value=currentBudget;
+        refreshAll();
+      }
+    });
+    input.addEventListener('blur',()=>{
+      const parsed=parseBudget(input.value);
+      setBudget(parsed||10000);
+    });
+    input.addEventListener('keydown',e=>{if(e.key==='Enter'){input.blur()}});
+  }
+
+  if(range){
+    range.addEventListener('input',e=>{
+      setBudget(+e.target.value,{skipRange:true});
+    });
+  }
+
+  // Wire pkg-boost toggles
+  boosts.forEach(btn=>{
+    const box=btn.closest('.price-box');
+    if(!box)return;
+    const total=box.querySelector('.price-total[data-base][data-boost]');
+    const orig=box.querySelector('.price-orig[data-base][data-boost]');
+
+    btn.addEventListener('click',()=>{
+      const wasActive=btn.getAttribute('aria-pressed')==='true';
+      const next=!wasActive;
+      btn.setAttribute('aria-pressed',next?'true':'false');
+
+      if(total){
+        const base=+total.dataset.base, boost=+total.dataset.boost;
+        const from=next?base:boost, to=next?boost:base;
+        animateNumber(total,from,to,720);
+        total.classList.remove('boost-pulse');
+        void total.offsetWidth;
+        total.classList.add('boost-pulse');
+      }
+      if(orig){
+        orig.textContent=next?orig.dataset.boost:orig.dataset.base;
+        orig.classList.remove('boost-pulse');
+        void orig.offsetWidth;
+        orig.classList.add('boost-pulse');
+      }
+    });
+  });
+
+  // Initial restore from localStorage or default
+  let initial=10000;
+  try{const stored=localStorage.getItem(STORAGE_KEY);if(stored){const n=parseInt(stored,10);if(!isNaN(n))initial=n}}catch(e){}
+  setBudget(initial);
+})();
+
+/* AUTO-DEMO — blink featured pkg-boost on first scroll-in */
+(function(){
+  const sec=document.getElementById('sec-pr');
+  const btn=document.querySelector('.price-box.featured .pkg-boost');
+  if(!sec||!btn)return;
+  try{if(sessionStorage.getItem('skeppshult-boost-demo-shown')==='true')return}catch(e){}
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let triggered=false;
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting||triggered)return;
+    triggered=true;obs.unobserve(e.target);
+    setTimeout(()=>{
+      btn.click();
+      setTimeout(()=>{
+        btn.click();
+        try{sessionStorage.setItem('skeppshult-boost-demo-shown','true')}catch(e){}
+      },3000);
+    },1400);
+  }),{threshold:0.3});
+  obs.observe(sec);
 })();
 
 </script>
